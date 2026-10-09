@@ -1,0 +1,48 @@
+{
+    "chrome": {
+        "path": ["C:\\Users\\USER_NAME\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe",
+                 "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+                 "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+                 ],
+        "arguments": [
+            "--headless",
+            "--disable-gpu",
+            "--user-data-dir=C:\\Temp\\ChromeProfile"
+        ],
+        "path_empty_profile": "C:\\Temp\\ChromeProfile",
+        "exe_name": "chrome.exe"
+    },
+    "edge": {
+        "path": ["C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe",
+                 "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+                 "C:\\Users\\USER_NAME\\AppData\\Local\\Microsoft\\Edge\\Application\\msedge.exe"],
+        "arguments": [
+            "--headless",
+            "--disable-gpu",
+            "--user-data-dir=C:\\Temp\\EdgeProfile"
+        ],
+        "path_empty_profile": "C:\\Temp\\EdgeProfile",
+        "exe_name": "msedge.exe"
+    }
+}
+
+
+//{
+//  "shipment_all": [
+//      {
+//        "shp": "021-TSO-S10000460927",
+//        "csm_list": [
+//          {
+//            "csm": 410120010,
+//            "statu": "None"
+//          },
+//          {
+//            "csm": 410120009,
+//            "status": "None"
+//          }
+//        ],
+//        "no_csm": 2,
+//        "csm_status_0": [410120009]
+//      }
+//  ]
+//}

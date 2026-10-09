@@ -1,0 +1,2 @@
+INOS ORDER KEY
+GlobalTerminalSystem - Validation Message - \\Remote

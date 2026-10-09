@@ -1,12 +1,15 @@
 import sys
 import logging
-from PyQt5 import QtWidgets
-from PyQt5.QtCore import QThread, QTimer
-from PyQt5.QtWidgets import QApplication, QWidget, QTableWidget, QTableWidgetItem, QHeaderView, QHBoxLayout, QVBoxLayout, QPushButton, QDialog, QLineEdit, QMenu
+# ZMIANA: Zmieniono wszystkie PyQt5 na PyQt6
+from PyQt6 import QtWidgets
+from PyQt6.QtCore import QThread, QTimer
+from PyQt6.QtWidgets import QApplication, QWidget, QTableWidget, QTableWidgetItem, QHeaderView, QHBoxLayout, QVBoxLayout, QPushButton, QDialog, QLineEdit, QMenu
 from widgets.SendPrenotGUI import Ui_MainWindow
 from logger_config import QtSignalHandler
 from bot_worker import BotWorker
-# w konsoli żeby przerobic plik UI-> pyuic5 -x "C:\Users\matok4\PycharmProjects\Send_Prenot_Bot_GTS - GUI II\widgets\SendPrenotGUI.ui" -o "C:\Users\matok4\PycharmProjects\Send_Prenot_Bot_GTS - GUI II\widgets\SendPrenotGUI.py"
+
+# NOWA KOMENDA DLA PYQT6 (jeśli będziesz edytować okno w Qt Designerze):
+# pyuic6 -x "C:\Users\matok4\PycharmProjects\Send_Prenot_Bot_GTS - GUI II\widgets\SendPrenotGUI.ui" -o "C:\Users\matok4\PycharmProjects\Send_Prenot_Bot_GTS - GUI II\widgets\SendPrenotGUI.py"
 
 
 class Window(QtWidgets.QMainWindow):
@@ -30,7 +33,10 @@ class Window(QtWidgets.QMainWindow):
 
     def copy_all_logs(self):
         text = self.ui.logOutput.toPlainText()
-        QtWidgets.QApplication.clipboard().setText(text)
+        # ZMIANA: W PyQt6 do schowka dobieramy się przez QApplication.instance().clipboard()
+        app_instance = QtWidgets.QApplication.instance()
+        if app_instance:
+            app_instance.clipboard().setText(text)
 
     def start_bot(self):
         if self.thread is None or not self.thread.isRunning():
@@ -54,7 +60,7 @@ class Window(QtWidgets.QMainWindow):
 #     app = QtWidgets.QApplication(sys.argv)
 #     window_main = Window()
 #     window_main.show()
-#     sys.exit(app.exec_())
+#     sys.exit(app.exec()) # ZMIANA: exec() zamiast exec_()
 #
 #
 # create_gui_app()

@@ -1,7 +1,8 @@
-from PyQt5.QtCore import QObject, pyqtSignal
-from bot_main import run_bot1
 import logging
 import time
+# ZMIANA: Zmieniono PyQt5 na PyQt6
+from PyQt6.QtCore import QObject, pyqtSignal
+from bot_main import run_bot1
 
 
 class BotWorker(QObject):

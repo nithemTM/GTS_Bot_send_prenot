@@ -50,7 +50,7 @@ def run_bot1():
 
     logger.info("Aplikacja uruchomiona w funkcji [run_bot]")
 
-    path_tr_file = "C:\\Users\\matok4\\PycharmProjects\\Send_Prenot_Bot_GTS - GUI II\\"
+    path_tr_file = "C:\\Users\\matok4\\PycharmProjects\\GTS_Bot_send_prenot\\"
 
     excel_transit_week = ExcelDataObject('Transit week 39  19.09.xlsx', path_tr_file, 0, 'A:G', 8)
     path_app_shortcut = "C:\\Users\\matok4\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\GTSGUI_DC78^.lnk"
@@ -313,6 +313,7 @@ def run_bot1():
                             excel_transit_week.save_data_single_line(index_loop, name_col_save)
                             index_loop += 1
                             continue
+
                         try:
                             text_valid = int(float(text_valid))
                             if len(str(text_valid)) != 9:
@@ -337,8 +338,8 @@ def run_bot1():
                                     index_edit_row_real, "UWAGI"] = "Uzupełnij/Popraw Receipt"
                                 excel_transit_week.save_data_single_line(index_loop, name_col_save)
                                 index_loop += 1
-                                continue
-
+                        if fail_valid_receipt:
+                            continue
                         # amount_csm = len(data_shipment_json.get(shp_valid))
                         # print(amount_csm)
                         # if amount_csm > 1:

@@ -1,5 +1,6 @@
 import logging
-from PyQt5.QtCore import QObject, pyqtSignal
+# ZMIANA: Zmieniono PyQt5 na PyQt6
+from PyQt6.QtCore import QObject, pyqtSignal
 
 
 class QtSignalHandler(QObject):
